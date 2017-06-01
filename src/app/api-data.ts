@@ -9,7 +9,7 @@ export class CoinData {
   public PreMinedValue: string;
   public ProofType: string;
   public SortOrder: string;
-  public TotalCoinSupply: string;
+  public TotalCoinSupply: number;
   public TotalCoinsFreeFloat: string;
   public Url: string;
 

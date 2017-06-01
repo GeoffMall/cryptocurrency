@@ -1,0 +1,11 @@
+<div class="demo-nav-bar">
+  <nav md-tab-nav-bar>
+    <a md-tab-link
+      [routerLink]="['/coin-list']"
+      routerLinkActive #rla1="routerLinkActive"
+      [active]="rla1.isActive">
+      Coin List
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

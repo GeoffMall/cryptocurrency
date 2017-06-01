@@ -1,0 +1,37 @@
+<table *ngIf="coinList" [md2Data]="coinList" #md2="md2DataTable" [rowsPerPage]="50">
+  <thead>
+    <tr>
+      <td colspan="7">
+        <md2-pagination [rowsPerPageSet]="[50, 100]"></md2-pagination>
+      </td>
+    </tr>
+
+    <tr>
+      <th md2SortBy="Name">Symbol</th>
+      <th md2SortBy="CoinName">Name</th>
+      <th md2SortBy="TotalCoinSupply">TotalCoinSupply</th>
+      <th md2SortBy="ProofType">ProofType</th>
+      <th md2SortBy="Algorithm">Algorithm</th>
+      <th>ImageUrl</th>
+      <th>Url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let coin of coinList">
+      <td>{{ coin.Name }}</td>
+      <td>{{ coin.CoinName }}</td>
+      <td>{{ coin.TotalCoinSupply }}</td>
+      <td>{{ coin.ProofType }}</td>
+      <td>{{ coin.Algorithm }}</td>
+      <td>{{ coin.ImageUrl }}</td>
+      <td>{{ coin.Url }}</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+  </tfoot>
+</table>
+<router-outlet></router-outlet>
+
+

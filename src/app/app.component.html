@@ -2,35 +2,6 @@
   {{title}}
 </h1>
 
-<table *ngIf="coinList">
-  <tr>
-    <th>Algorithm</th>
-    <th>CoinName</th>
-    <th>FullName</th>
-    <th>FullyPremined</th>
-    <th>Id</th>
-    <th>ImageUrl</th>
-    <th>Name</th>
-    <th>PreMinedValue</th>
-    <th>ProofType</th>
-    <th>SortOrder</th>
-    <th>TotalCoinSupply</th>
-    <th>TotalCoinsFreeFloat</th>
-    <th>Url</th>
-  </tr>
-  <tr *ngFor="let coin of coinList">
-    <td>{{ coin.Algorithm }}</td>
-    <td>{{ coin.CoinName }}</td>
-    <td>{{ coin.FullName }}</td>
-    <td>{{ coin.FullyPremined }}</td>
-    <td>{{ coin.Id }}</td>
-    <td>{{ coin.ImageUrl }}</td>
-    <td>{{ coin.Name }}</td>
-    <td>{{ coin.PreMinedValue }}</td>
-    <td>{{ coin.ProofType }}</td>
-    <td>{{ coin.SortOrder }}</td>
-    <td>{{ coin.TotalCoinSupply }}</td>
-    <td>{{ coin.TotalCoinsFreeFloat }}</td>
-    <td>{{ coin.Url }}</td>
-  </tr>
-</table>
+
+
+<router-outlet></router-outlet>
