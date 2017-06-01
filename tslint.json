@@ -40,7 +40,7 @@
       "timeEnd",
       "trace"
     ],
-    "no-construct": true,
+    "no-construct": false,
     "no-debugger": true,
     "no-duplicate-variable": true,
     "no-empty": false,
