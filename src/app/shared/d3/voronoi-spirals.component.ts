@@ -2,11 +2,11 @@ import { Component, ElementRef, NgZone, OnDestroy, OnInit } from '@angular/core'
 import { D3Service, D3, RGBColor, Selection, Timer, VoronoiPolygon } from 'd3-ng2-service';
 
 @Component({
-  selector: 'app-d3-graph',
-  templateUrl: './d3-graph.component.html',
+  selector: 'app-d3-voronoi-spirals',
+  templateUrl: './voronoi-spirals.component.html',
   styles: []
 })
-export class D3GraphComponent implements OnInit {
+export class D3VoronoiSpiralsComponent implements OnInit {
   private d3: D3;
   private parentNativeElement: any;
   private timer: Timer;
