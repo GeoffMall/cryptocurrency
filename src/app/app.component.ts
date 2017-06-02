@@ -7,7 +7,6 @@ import {CoinData} from './api-data';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  title = 'Crypto Currency';
 
   constructor() {}
 

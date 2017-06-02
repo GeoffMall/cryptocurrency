@@ -1,37 +1,42 @@
-<table *ngIf="coinList" [md2Data]="coinList" #md2="md2DataTable" [rowsPerPage]="50">
-  <thead>
-    <tr>
-      <td colspan="7">
-        <md2-pagination [rowsPerPageSet]="[50, 100]"></md2-pagination>
-      </td>
-    </tr>
+<md-card class="coin-list-card">
 
-    <tr>
-      <th md2SortBy="Name">Symbol</th>
-      <th md2SortBy="CoinName">Name</th>
-      <th md2SortBy="TotalCoinSupply">TotalCoinSupply</th>
-      <th md2SortBy="ProofType">ProofType</th>
-      <th md2SortBy="Algorithm">Algorithm</th>
-      <th>ImageUrl</th>
-      <th>Url</th>
-    </tr>
-  </thead>
+  <md-card-title>
+    <md-input-container>
+      <input mdInput placeholder="Search" [(ngModel)]="search" type="text" id="search" name="search">
+    </md-input-container>
+    <button md-icon-button>
+      <md-icon>search</md-icon>
+    </button>
+  </md-card-title>
 
-  <tbody>
-    <tr *ngFor="let coin of coinList">
-      <td>{{ coin.Name }}</td>
-      <td>{{ coin.CoinName }}</td>
-      <td>{{ coin.TotalCoinSupply }}</td>
-      <td>{{ coin.ProofType }}</td>
-      <td>{{ coin.Algorithm }}</td>
-      <td>{{ coin.ImageUrl }}</td>
-      <td>{{ coin.Url }}</td>
-    </tr>
-  </tbody>
+  <md-card-content>
 
-  <tfoot>
-  </tfoot>
-</table>
+    <table *ngIf="coinList">
+      <tr>
+        <td>Symbol</td>
+        <td>Name</td>
+        <td>Proof Type</td>
+        <td>Algorithm</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let coin of coinList" class="coin-row pointer"
+        [class.hidden]="!showListItem(search, coin['Name'], coin['CoinName'], coin['ProofType'], coin['Algorithm'])">
+        <td highlightSearched [search]="search" [text]="coin['Name']" classToApply="searched"></td>
+        <td highlightSearched [search]="search" [text]="coin['CoinName']" classToApply="searched"></td>
+        <td highlightSearched [search]="search" [text]="coin['ProofType']" classToApply="searched"></td>
+        <td highlightSearched [search]="search" [text]="coin['Algorithm']" classToApply="searched"></td>
+      </tr>
+    </table>
+
+  </md-card-content>
+
+</md-card>
+
 <router-outlet></router-outlet>
 
 

@@ -9,7 +9,7 @@ import {CoinData} from "../../api-data";
 export class CoinListComponent implements OnInit {
   title = 'Crypto Currency';
   coinList: CoinData[] = [];
-  search: string = null;
+  search: string;
 
   constructor(private crypto: CryptoApiService) { }
 
@@ -21,4 +21,18 @@ export class CoinListComponent implements OnInit {
         console.log(error);
       });
   }
+
+  showListItem(searchString: string, ...inputs: string[]): boolean {
+    if (searchString == undefined || searchString == '') {
+      return true;
+    }
+    let aggregateInput = '';
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i] != null && inputs[i] != undefined) {
+        aggregateInput += inputs[i] + " ";
+      }
+    }
+    return aggregateInput.toLowerCase().indexOf(searchString.toLowerCase()) != -1;
+  }
+
 }
