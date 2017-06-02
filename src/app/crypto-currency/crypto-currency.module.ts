@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import {MaterialModule} from "../material/material.module";
 import {Md2Module} from "md2";
 import {SharedModule} from "../shared/shared.module";
+import { CoinPriceComponent } from './coin-price/coin-price.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {SharedModule} from "../shared/shared.module";
   ],
   declarations: [
     CoinListComponent,
-    LayoutComponent
+    LayoutComponent,
+    CoinPriceComponent
   ]
 })
 export class CryptoCurrencyModule { }
