@@ -3,7 +3,7 @@ import {NgModule} from "@angular/core";
 
 const routes: Routes = [
   {
-    path: 'crypto-currency',
+    path: '',
     loadChildren: 'app/crypto-currency/crypto-currency.module#CryptoCurrencyModule'
   },
 ];

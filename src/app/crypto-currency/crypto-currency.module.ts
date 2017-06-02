@@ -5,8 +5,6 @@ import {CryptoCurrencyRoutingModule} from "./crypto-currency-routing.module";
 import { LayoutComponent } from './layout/layout.component';
 import {MaterialModule} from "../material/material.module";
 import {SharedModule} from "../shared/shared.module";
-import { CoinPriceComponent } from './coin-price/coin-price.component';
-import { CoinProfileComponent } from './coin-profile/coin-profile.component';
 
 @NgModule({
   imports: [
@@ -19,8 +17,6 @@ import { CoinProfileComponent } from './coin-profile/coin-profile.component';
   declarations: [
     LayoutComponent,
     CoinListComponent,
-    CoinPriceComponent,
-    CoinProfileComponent
-  ]
+  ],
 })
 export class CryptoCurrencyModule { }

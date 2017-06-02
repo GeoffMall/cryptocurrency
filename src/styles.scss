@@ -1,27 +1,12 @@
 @import '~@angular/material/theming';
 @include mat-core();
-$app-primary: mat-palette($mat-indigo);
-$app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$app-primary: mat-palette($mat-light-blue);
+$app-accent:  mat-palette($mat-light-green);
 $app-warn:    mat-palette($mat-red);
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 @include angular-material-theme($app-theme);
 
-$primary: #2196f3;
-$primary-light: #6ec6ff;
-$primary-dark: #0069c0;
 
-$secondary: #e040fb;
-$secondary-light: #ff79ff;
-$secondary-dark: #aa00c7;
-
-$text: #000000;
-
-.layout {
-  nav {
-    background-color: $primary-light;
-    color: $text;
-  }
-}
 
 .pointer {
   cursor: pointer;
@@ -32,26 +17,20 @@ $text: #000000;
 }
 
 .searched {
-  background-color: $secondary-light;
+  background-color: mat-color($app-accent);
 }
 
-.coin-list-card {
+.container {
+  -webkit-flex: 1; /* Safari 6.1+ */
+  -ms-flex: 1; /* IE 10 */
+  flex: 1;
 
-  md-card-title {
-    margin: auto;
-    width: 50%;
+  button {
+    width: 100%;
   }
 
-  md-card-content {
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-
-      th, td {
-        border: 1px solid black;
-      }
-    }
+  table {
+    width: 100%;
   }
 
 }
