@@ -2,28 +2,17 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {CoinData, CoinMarketCapTicker, CoinTicker, Ticker} from '../api-data';
-import {Data} from '@angular/router';
-
-
+import {CoinMarketCapTicker, CoinTicker, Ticker} from '../api-data';
 
 @Injectable()
 export class CryptoApiService {
-
 
   constructor(private http: Http) { }
 
 
   public getCoinPrice(symbol: string): Observable<any> {
     let API = 'https://min-api.cryptocompare.com/data/price';
-    const ETH = '?fsym=ETH&tsyms=USD';
-    const BTC = '?fsym=BTC&tsyms=USD';
-    if (symbol === 'ETH') {
-      API = API + ETH;
-    }
-    if (symbol === 'BTC') {
-      API = API + BTC;
-    }
+    API = API + '?fsym=' + symbol + '&tsyms=USD';
     return this.http.get(API).map(
       (response) => {
         return response.json()['USD'];
@@ -41,7 +30,8 @@ export class CryptoApiService {
   }
 
   public getCoinBaseBuy(coin: string): Observable<any> {
-    let API = 'https://api.coinbase.com/v2/prices/' + coin + '/buy';
+    let API = 'https://api.coinbase.com/v2/prices/';
+    API = API + coin + '/buy';
     return this.http.get(API).map(
       (response) => {
         return response.json()['data']['amount'];
@@ -60,9 +50,11 @@ export class CryptoApiService {
     let API = 'http://api.coinmarketcap.com/v1/ticker/';
     API = API + coin;
     const headers = new Headers();
-    headers.append('Access-Control-Allow-Headers', 'Content-Type');
+    /* Attempted try at CORS for this api
+     headers.append('Access-Control-Allow-Headers', 'Content-Type');
     headers.append('Access-Control-Allow-Methods', 'GET');
     headers.append('Access-Control-Allow-Origin', '*');
+    */
     return this.http.get(API, headers).map(
       (response) => {
         return response.json() as CoinMarketCapTicker;
