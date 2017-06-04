@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {CoinMarketCapTicker, CoinTicker, Ticker} from '../api-data';
+import {CoinMarketCapTicker } from '../shared/models/api-data';
+import {CryptonatorTicker} from "../shared/models/api-cryptonator";
 
 @Injectable()
 export class CryptoApiService {
@@ -19,13 +20,18 @@ export class CryptoApiService {
       });
   }
 
-  public getCoinTicker(coin: string): Observable<Ticker> {
-    let API = 'https://api.cryptonator.com/api/ticker/';
-    API = API + coin;
+  /**
+   * https://www.cryptonator.com/api
+   * @param name
+   * @param full
+   * @return {Observable<R>}
+   */
+  public getCryptonatorTicker(name: string, full?: boolean): Observable<CryptonatorTicker> {
+    let API = 'https://api.cryptonator.com/api/full/'+ name;
     return this.http.get(API).map(
       (response) => {
-        let ticker = response.json() as CoinTicker;
-        return new CoinTicker(ticker).ticker;
+        let ticker = response.json()['ticker'];
+        return new CryptonatorTicker(ticker);
       });
   }
 

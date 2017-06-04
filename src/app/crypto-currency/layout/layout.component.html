@@ -6,6 +6,12 @@
       [active]="rla1.isActive">
       Coin List
     </a>
+    <a md-tab-link
+      [routerLink]="['/bitcoin']"
+      routerLinkActive #rla1="routerLinkActive"
+      [active]="rla1.isActive">
+      Bitcoin
+    </a>
   </nav>
   <router-outlet></router-outlet>
 </div>

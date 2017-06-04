@@ -143,11 +143,15 @@
       </button>
     </div>
 
-
-  <app-d3-voronoi-spirals style="width: 33%; display: inline-block;"></app-d3-voronoi-spirals>
-  <app-d3-brush-zoom style="width: 33%; display: inline-block;"></app-d3-brush-zoom>
-  <app-d3-drag-zoom style="width: 33%; display: inline-block;"></app-d3-drag-zoom>
-
+  <div *ngIf="btcTicker">
+    <app-market-radar-chart [markets]="btcTicker.markets"></app-market-radar-chart>
+  </div>
+  <div *ngIf="ethTicker">
+    <app-market-radar-chart [markets]="ethTicker.markets"></app-market-radar-chart>
+  </div>
+  <div *ngIf="etcTicker">
+    <app-market-radar-chart [markets]="etcTicker.markets"></app-market-radar-chart>
+  </div>
 </div>
 <router-outlet></router-outlet>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CryptoApiService} from "../../core/crypto-api.service";
-import {CoinData, CoinMarketCapTicker, CoinTicker, Ticker} from "../../api-data";
+import {CoinMarketCapTicker} from "../../shared/models/api-data";
+import {CryptonatorTicker} from "../../shared/models/api-cryptonator";
 
 @Component({
   selector: 'app-coin-list',
@@ -8,9 +9,9 @@ import {CoinData, CoinMarketCapTicker, CoinTicker, Ticker} from "../../api-data"
 })
 export class CoinListComponent implements OnInit {
   title = 'Crypto Currency';
-  btcTicker: Ticker;
-  ethTicker: Ticker;
-  etcTicker: Ticker;
+  btcTicker: CryptonatorTicker;
+  ethTicker: CryptonatorTicker;
+  etcTicker: CryptonatorTicker;
 
   btcCoinBase = { buy: '', sell: '' };
   ethCoinBase = { buy: '', sell: '' };
@@ -24,15 +25,15 @@ export class CoinListComponent implements OnInit {
   constructor(private crypto: CryptoApiService) { }
 
   ngOnInit() {
-    this.crypto.getCoinTicker('btc-usd').subscribe(
+    this.crypto.getCryptonatorTicker('btc-usd').subscribe(
       (response) => {
         this.btcTicker = response;
       });
-    this.crypto.getCoinTicker('eth-usd').subscribe(
+    this.crypto.getCryptonatorTicker('eth-usd').subscribe(
       (response) => {
         this.ethTicker = response;
       });
-    this.crypto.getCoinTicker('etc-usd').subscribe(
+    this.crypto.getCryptonatorTicker('etc-usd').subscribe(
       (response) => {
         this.etcTicker = response;
       });
@@ -87,5 +88,7 @@ export class CoinListComponent implements OnInit {
     }
     return aggregateInput.toLowerCase().indexOf(searchString.toLowerCase()) != -1;
   }
+
+
 
 }

@@ -32,44 +32,6 @@ export class CoinData {
   }
 }
 
-export class CoinTicker {
-  public ticker: Ticker;
-  public timestamp: number;
-  public success: boolean;
-  public error: string;
-
-  constructor()
-  constructor(coinTicker: CoinTicker)
-  constructor(coinTicker?: CoinTicker){
-    this.ticker = new Ticker(coinTicker.ticker);
-    this.timestamp = coinTicker.timestamp;
-    this.success = coinTicker.success;
-    this.error = coinTicker.error;
-  }
-}
-
-export class Ticker {
-  public base: string;
-  public target: string;
-  public price: string;
-  public volume: string;
-  public change: string;
-
-  constructor()
-  constructor(ticker: Ticker)
-  constructor(ticker?: Ticker) {
-    this.base = ticker.base;
-    this.target = ticker.base;
-    this.price = ticker.price;
-    this.volume = ticker.volume;
-    this.change = ticker.change;
-  }
-
-  public trendingUp(): boolean {
-    return this.change.substring(0, 1) != '-';
-  }
-}
-
 export class CoinMarketCapTicker {
   public id: string;
   public name: string;

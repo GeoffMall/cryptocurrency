@@ -1,0 +1,24 @@
+<div *ngIf="ticker">
+  <h1>Market Volume</h1>
+    <app-pie-chart [markets]="ticker.markets"></app-pie-chart>
+</div>
+
+<div *ngIf="ticker">
+  <button md-raised-button>
+    <table>
+      <tr>
+        <td>{{ticker.base}}</td>
+        <td>{{ticker.price | currency:'USD':true}}</td>
+        <td>Volume: {{ticker.volume | number:'1.3-4'}}</td>
+        <td *ngIf="ticker.trendingUp()">
+          {{ticker.change | number:'1.3-4'}}%
+          <md-icon color="accent">arrow_upward</md-icon>
+        </td>
+        <td *ngIf="!ticker.trendingUp()">
+          {{ticker.change | number:'1.3-4'}}%
+          <md-icon color="warn">arrow_downward</md-icon>
+        </td>
+      </tr>
+    </table>
+  </button>
+</div>

@@ -5,6 +5,8 @@ import {CryptoCurrencyRoutingModule} from "./crypto-currency-routing.module";
 import { LayoutComponent } from './layout/layout.component';
 import {MaterialModule} from "../material/material.module";
 import {SharedModule} from "../shared/shared.module";
+import {ChartsModule} from "ng2-charts";
+import { BitcoinComponent } from './bitcoin/bitcoin.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,7 @@ import {SharedModule} from "../shared/shared.module";
   declarations: [
     LayoutComponent,
     CoinListComponent,
+    BitcoinComponent,
   ],
 })
 export class CryptoCurrencyModule { }
