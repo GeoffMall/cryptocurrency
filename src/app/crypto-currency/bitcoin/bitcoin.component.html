@@ -3,6 +3,28 @@
     <app-pie-chart [markets]="ticker.markets"></app-pie-chart>
 </div>
 
+<h3>
+  Coinbase
+</h3>
+
+<div *ngIf="coinBaseInfo">
+  <div>
+    <button md-raised-button>
+      Sell: {{coinBaseInfo.sell | currency:'USD':true}}
+    </button>
+  </div>
+  <div>
+    <button md-raised-button>
+      Spot: {{coinBaseInfo.spot | currency:'USD':true}}
+    </button>
+  </div>
+  <div>
+    <button md-raised-button>
+      Buy: {{coinBaseInfo.buy | currency:'USD':true}}
+    </button>
+  </div>
+
+</div>
 <div *ngIf="ticker">
   <button md-raised-button>
     <table>

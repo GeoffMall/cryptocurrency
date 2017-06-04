@@ -9,6 +9,7 @@ import {CryptonatorTicker} from "../../shared/models/api-cryptonator";
 })
 export class BitcoinComponent implements OnInit {
   public ticker: CryptonatorTicker;
+  public coinBaseInfo: any;
 
   constructor(private crypto: CryptoApiService) { }
 
@@ -17,7 +18,10 @@ export class BitcoinComponent implements OnInit {
       (response) => {
         this.ticker = response;
       });
-
+    this.crypto.getCoinBaseInfo('BTC-USD').subscribe(
+      (response) => {
+        this.coinBaseInfo = response;
+      });
   }
 
 }

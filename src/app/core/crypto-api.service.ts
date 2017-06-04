@@ -24,7 +24,7 @@ export class CryptoApiService {
    * https://www.cryptonator.com/api
    * @param name
    * @param full
-   * @return {Observable<R>}
+   * @return {Observable<CryptonatorTicker>}
    */
   public getCryptonatorTicker(name: string, full?: boolean): Observable<CryptonatorTicker> {
     let API = 'https://api.cryptonator.com/api/full/'+ name;
@@ -32,6 +32,25 @@ export class CryptoApiService {
       (response) => {
         let ticker = response.json()['ticker'];
         return new CryptonatorTicker(ticker);
+      });
+  }
+
+  public getCoinBaseInfo(name: string): Observable<any> {
+    let API = 'https://api.coinbase.com/v2/prices/' + name;
+    let SpotAPI = API + '/spot';
+    let BuyAPI = API + '/buy';
+    let SellAPI = API + '/sell';
+
+    let buy = this.http.get(BuyAPI);
+    let sell = this.http.get(SellAPI);
+    let spot = this.http.get(SpotAPI);
+
+    return Observable.forkJoin([ buy, sell, spot ])
+      .map(results => {
+        let buy = results[0].json()['data']['amount'];
+        let sell = results[1].json()['data']['amount'];
+        let spot = results[2].json()['data']['amount'];
+        return {'buy': buy, 'sell': sell, 'spot': spot};
       });
   }
 
