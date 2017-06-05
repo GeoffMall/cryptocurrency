@@ -1,0 +1,27 @@
+<md-select placeholder="Market" [(ngModel)]="currentMarketGraph">
+    <md-option *ngFor="let view of views" [value]="view.value">
+        {{ view.viewValue }}
+    </md-option>
+</md-select>
+
+
+<div *ngIf="currentMarketGraph == 'price'">
+  <canvas baseChart width="400" height="400"
+    [datasets]="lineChartData"
+    [labels]="labels"
+    [options]="options"
+    [legend]="legend"
+    [chartType]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+
+<div *ngIf="currentMarketGraph == 'volume'">
+  <canvas baseChart
+    [data]="pieChartData"
+    [labels]="labels"
+    [chartType]="pieChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"></canvas>
+</div>

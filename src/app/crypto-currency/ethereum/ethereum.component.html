@@ -1,9 +1,9 @@
 <md-card>
 
   <md-card-header>
-    <md-card-title>Bitcoin</md-card-title>
+    <md-card-title>Ethereum</md-card-title>
     <md-card-subtitle>Digital Currency</md-card-subtitle>
-    <img md-card-avatar src="./../../../assets/img/bitcoin.png">
+    <img md-card-avatar src="./../../../assets/img/ethereum.png">
   </md-card-header>
 
   <md-card-content>
@@ -11,7 +11,7 @@
 
       <app-market-price-volume-chart [markets]="cryptonatorInfo?.markets"></app-market-price-volume-chart>
 
-<!--Change: {{cryptonatorInfo.change | number:'1.3-4'}}%-->
+      <!--Change: {{cryptonatorInfo.change | number:'1.3-4'}}%-->
     </span>
 
     <span style="width: 50%; height: 100%; display: inline-block; float: right" *ngIf="coinBaseInfo">

@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LayoutComponent} from "./layout/layout.component";
-import {CoinListComponent} from "./coin-list/coin-list.component";
+import {SummaryComponent} from "./summary/summary.component";
 import {BitcoinComponent} from "./bitcoin/bitcoin.component";
+import {EthereumComponent} from "./ethereum/ethereum.component";
+import {CryptoCurrencyComponent} from "./crypto-currency.component";
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent,
+  { path: 'crypto', component: CryptoCurrencyComponent,
     children:
-      [
-        { path: '', redirectTo: 'coin-list', pathMatch: 'full'},
-        { path: 'coin-list', component: CoinListComponent },
-        { path: 'bitcoin', component: BitcoinComponent },
-
-      ]
+    [
+      { path: '', redirectTo: 'summary', pathMatch: 'full'},
+      { path: 'summary', component: SummaryComponent },
+      { path: 'bitcoin', component: BitcoinComponent },
+      { path: 'ethereum', component: EthereumComponent },
+    ]
   }
 ];
 

@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Market} from "../models/api-cryptonator";
+import {Market} from "../../models/api-cryptonator";
 
 @Component({
-  selector: 'app-pie-chart',
+  selector: 'app-market-volume-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss']
 })

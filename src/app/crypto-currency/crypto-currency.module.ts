@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoinListComponent } from './coin-list/coin-list.component';
+import { SummaryComponent } from './summary/summary.component';
 import {CryptoCurrencyRoutingModule} from "./crypto-currency-routing.module";
-import { LayoutComponent } from './layout/layout.component';
 import {MaterialModule} from "../material/material.module";
 import {SharedModule} from "../shared/shared.module";
-import {ChartsModule} from "ng2-charts";
 import { BitcoinComponent } from './bitcoin/bitcoin.component';
+import { EthereumComponent } from './ethereum/ethereum.component';
+import { CryptoCurrencyComponent } from './crypto-currency.component';
 
 @NgModule({
   imports: [
@@ -17,9 +17,10 @@ import { BitcoinComponent } from './bitcoin/bitcoin.component';
     CryptoCurrencyRoutingModule
   ],
   declarations: [
-    LayoutComponent,
-    CoinListComponent,
+    SummaryComponent,
     BitcoinComponent,
+    EthereumComponent,
+    CryptoCurrencyComponent,
   ],
 })
 export class CryptoCurrencyModule { }

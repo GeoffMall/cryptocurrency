@@ -1,27 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HighlightSearchDirective } from './highlight-search.directive';
-import { LineChartComponent } from './line-chart/line-chart.component';
+import { MarketPriceLineChartComponent } from './charts/line-chart/market-price-line-chart.component';
 import {ChartsModule} from "ng2-charts";
-import { PieChartComponent } from './pie-chart/pie-chart.component';
-import { MarketRadarChartComponent } from './market-radar-chart/market-radar-chart.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { MarketRadarChartComponent } from './charts/market-radar-chart/market-radar-chart.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SellSpotBuyLineChartComponent } from './charts/bar-chart/sell-spot-buy-line-chart/sell-spot-buy-line-chart.component';
+import { MarketPriceVolumeChartComponent } from './charts/market-price-volume-chart/market-price-volume-chart.component';
+import {MaterialModule} from "../material/material.module";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   imports: [
     CommonModule,
     ChartsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    RouterModule
   ],
   declarations: [
     HighlightSearchDirective,
-    LineChartComponent,
+    MarketPriceLineChartComponent,
     PieChartComponent,
     MarketRadarChartComponent,
+    SellSpotBuyLineChartComponent,
+    MarketPriceVolumeChartComponent,
   ],
   exports: [
     HighlightSearchDirective,
-    LineChartComponent,
+    MarketPriceLineChartComponent,
     PieChartComponent,
     MarketRadarChartComponent,
+    SellSpotBuyLineChartComponent,
+    MarketPriceVolumeChartComponent,
+
   ],
 })
 export class SharedModule { }

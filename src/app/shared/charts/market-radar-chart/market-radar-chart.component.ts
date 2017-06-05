@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Market} from "../models/api-cryptonator";
+import {Market} from "../../models/api-cryptonator";
 
 @Component({
   selector: 'app-market-radar-chart',
@@ -25,8 +25,8 @@ export class MarketRadarChartComponent implements OnInit {
       this.priceData.push(Number(market.price));
       }
     this.radarChartData = [
-      {data: this.priceData, label: 'Price'},
-      {data: this.volumeData, label: 'Volume'},
+      { data: this.priceData, label: 'Price' },
+      { data: this.volumeData, label: 'Volume' },
     ];
   }
 

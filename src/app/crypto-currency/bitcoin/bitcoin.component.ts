@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CryptoApiService} from "../../core/crypto-api.service";
-import {CryptonatorTicker} from "../../shared/models/api-cryptonator";
+import {CryptonatorInfo} from "../../shared/models/api-cryptonator";
+// import {BitstampInfo} from "../../shared/models/api-bitstamp";
+import {CoinBaseInfo} from "../../shared/models/api-coinbase";
 
 @Component({
   selector: 'app-bitcoin',
@@ -8,20 +10,33 @@ import {CryptonatorTicker} from "../../shared/models/api-cryptonator";
   styleUrls: ['./bitcoin.component.scss']
 })
 export class BitcoinComponent implements OnInit {
-  public ticker: CryptonatorTicker;
-  public coinBaseInfo: any;
+  public cryptonatorInfo: CryptonatorInfo;
+  public coinBaseInfo: CoinBaseInfo;
+  // public bitstampInfo: BitstampInfo;
+  public currentMarketGraph: string[];
+
+
 
   constructor(private crypto: CryptoApiService) { }
 
   ngOnInit() {
-    this.crypto.getCryptonatorTicker('btc-usd').subscribe(
+    this.crypto.getCryptonatorInfo('btc-usd').subscribe(
       (response) => {
-        this.ticker = response;
+        this.cryptonatorInfo = response;
       });
+
     this.crypto.getCoinBaseInfo('BTC-USD').subscribe(
       (response) => {
         this.coinBaseInfo = response;
       });
+    this.currentMarketGraph = ['volume'];
+
+    /*
+     this.crypto.getBitstampInfo('btcusd').subscribe(
+      (response) => {
+        this.bitstampInfo = response;
+      });
+    */
   }
 
 }

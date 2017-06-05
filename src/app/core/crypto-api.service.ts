@@ -3,13 +3,23 @@ import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {CoinMarketCapTicker } from '../shared/models/api-data';
-import {CryptonatorTicker} from "../shared/models/api-cryptonator";
+import {CryptonatorInfo} from "../shared/models/api-cryptonator";
+import {BitstampInfo} from "../shared/models/api-bitstamp";
+import {CoinBaseInfo} from "../shared/models/api-coinbase";
 
 @Injectable()
 export class CryptoApiService {
 
   constructor(private http: Http) { }
 
+
+  public getBitstampInfo(name: string): Observable<BitstampInfo> {
+    let API = 'https://www.bitstamp.net/api/v2/ticker/' + name;
+    return this.http.get(API).map(
+      (response) => {
+        return response.json();
+      });
+  }
 
   public getCoinPrice(symbol: string): Observable<any> {
     let API = 'https://min-api.cryptocompare.com/data/price';
@@ -24,18 +34,19 @@ export class CryptoApiService {
    * https://www.cryptonator.com/api
    * @param name
    * @param full
-   * @return {Observable<CryptonatorTicker>}
+   * @return {Observable<CryptonatorInfo>}
    */
-  public getCryptonatorTicker(name: string, full?: boolean): Observable<CryptonatorTicker> {
-    let API = 'https://api.cryptonator.com/api/full/'+ name;
+  public getCryptonatorInfo(name: string, full?: boolean): Observable<CryptonatorInfo> {
+    let API = 'https://api.cryptonator.com/api/full/' + name;
     return this.http.get(API).map(
       (response) => {
-        let ticker = response.json()['ticker'];
-        return new CryptonatorTicker(ticker);
+        let info = response.json()['ticker'];
+        return new CryptonatorInfo(info);
       });
   }
 
-  public getCoinBaseInfo(name: string): Observable<any> {
+
+  public getCoinBaseInfo(name: string): Observable<CoinBaseInfo> {
     let API = 'https://api.coinbase.com/v2/prices/' + name;
     let SpotAPI = API + '/spot';
     let BuyAPI = API + '/buy';
@@ -72,7 +83,7 @@ export class CryptoApiService {
   }
 
   public getCoinMarketCapTicker(coin: string): Observable<any> {
-    let API = 'http://api.coinmarketcap.com/v1/ticker/';
+    let API = 'http://api.coinmarketcap.com/v1/cryptonatorInfo/';
     API = API + coin;
     const headers = new Headers();
     /* Attempted try at CORS for this api
