@@ -37,9 +37,11 @@ export class MarketPriceVolumeChartComponent implements OnInit {
     this.markets = this.markets.slice(0, 5);
 
     for(let market of this.markets) {
+      let i = this.markets.indexOf(market);
       this.labels.push(market.market);
       this.pieChartData.push(market.volume);
       this.priceData.push(Number(market.price));
+
     }
 
     // Line chart data must be in array
@@ -50,6 +52,7 @@ export class MarketPriceVolumeChartComponent implements OnInit {
     this.currentMarketGraph = ['volume'];
 
   }
+
 
   // events
   public chartClicked(e:any):void {

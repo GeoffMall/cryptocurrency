@@ -21,15 +21,6 @@ export class CryptoApiService {
       });
   }
 
-  public getCoinPrice(symbol: string): Observable<any> {
-    let API = 'https://min-api.cryptocompare.com/data/price';
-    API = API + '?fsym=' + symbol + '&tsyms=USD';
-    return this.http.get(API).map(
-      (response) => {
-        return response.json()['USD'];
-      });
-  }
-
   /**
    * https://www.cryptonator.com/api
    * @param name
@@ -65,22 +56,7 @@ export class CryptoApiService {
       });
   }
 
-  public getCoinBaseBuy(coin: string): Observable<any> {
-    let API = 'https://api.coinbase.com/v2/prices/';
-    API = API + coin + '/buy';
-    return this.http.get(API).map(
-      (response) => {
-        return response.json()['data']['amount'];
-      });
-  }
 
-  public getCoinBaseSell(coin: string): Observable<any> {
-    let API = 'https://api.coinbase.com/v2/prices/' + coin + '/sell';
-    return this.http.get(API).map(
-      (response) => {
-        return response.json()['data']['amount'];
-      });
-  }
 
   public getCoinMarketCapTicker(coin: string): Observable<any> {
     let API = 'http://api.coinmarketcap.com/v1/cryptonatorInfo/';

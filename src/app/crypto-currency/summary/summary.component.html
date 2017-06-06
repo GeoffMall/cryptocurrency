@@ -1,0 +1,16 @@
+<md-card>
+  <md-card-content>
+    <md-list>
+      <md-list-item>
+        Bitcoin:
+        <span class="spacer"></span>
+        {{ btcInfo?.price | currency:'USD':true:'1.2-2'}}
+      </md-list-item>
+      <md-list-item>
+        Ethereum:
+        <span class="spacer"></span>
+        {{ ethInfo?.price | currency:'USD':true:'1.2-2'}}
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

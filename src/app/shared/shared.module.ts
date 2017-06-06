@@ -10,6 +10,7 @@ import { SellSpotBuyLineChartComponent } from './charts/bar-chart/sell-spot-buy-
 import { MarketPriceVolumeChartComponent } from './charts/market-price-volume-chart/market-price-volume-chart.component';
 import {MaterialModule} from "../material/material.module";
 import {RouterModule} from "@angular/router";
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import {RouterModule} from "@angular/router";
     MarketRadarChartComponent,
     SellSpotBuyLineChartComponent,
     MarketPriceVolumeChartComponent,
+    ClockComponent,
   ],
   exports: [
     HighlightSearchDirective,
@@ -35,7 +37,7 @@ import {RouterModule} from "@angular/router";
     MarketRadarChartComponent,
     SellSpotBuyLineChartComponent,
     MarketPriceVolumeChartComponent,
-
+    ClockComponent,
   ],
 })
 export class SharedModule { }
